@@ -4,6 +4,8 @@ Transport for London, the body responsible for delivery of a new bike system, ha
 
 This challenge is comprised of 22 challenges. They all build on one another. They require to research things, to get stuck, to find solutions.
 
+This project focuses on Pair Programming and TDD.
+
 ## Installation and usage
 
 This program requires latest [Ruby](https://www.ruby-lang.org/en/downloads/) version or more recent.
