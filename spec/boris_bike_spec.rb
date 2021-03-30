@@ -14,7 +14,8 @@ RSpec.describe DockingStation do
   it { is_expected.to respond_to(:dock).with(1).argument }
 
   it 'docks a bike' do 
-    expect(subject.dock(bike)).to eq([])
+    bike = Bike.new
+    expect(subject.dock(bike)).to eq(bike)
   end
 
 
