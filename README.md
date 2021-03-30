@@ -12,12 +12,11 @@ This program requires latest [Ruby](https://www.ruby-lang.org/en/downloads/) ver
 
 ### Running from source
 
-The following commands clone and run the FizzBuzz program:
+The following commands clone and run the Boris Bikes program:
 
 ```sh
-git clone git@github.com:jasonrowsell/fizzbuzz.git
-cd fizzbuzz
-ruby fizzbuzz.rb
+git clone git@github.com:jasonrowsell/boris-bikes.git
+cd boris-bikes
 ```
 
 ### Running tests
