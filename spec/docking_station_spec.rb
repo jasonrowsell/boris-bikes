@@ -4,7 +4,7 @@ RSpec.describe DockingStation do
 
   it { is_expected.to respond_to :release_bike }
 
-  it 'release working bike' do
+  it 'releases a working bike' do
     bike = subject.release_bike
     expect(bike.working?).to be_truthy
   end
@@ -16,9 +16,4 @@ RSpec.describe DockingStation do
     expect(subject.dock(bike)).to eq(bike)
   end
 
-
-end
-
-RSpec.describe Bike do
-  it { is_expected.to respond_to :working? }
 end
