@@ -10,6 +10,7 @@ class DockingStation
 
 
   def dock(bike)
+    fail 'Unlucky mate, I\'m full' if @bike
     @bike = bike
   end
 
