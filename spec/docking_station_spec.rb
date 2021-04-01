@@ -2,37 +2,30 @@ require "docking_station"
 
 describe DockingStation do
 
+  before do
+    @bike = Bike.new
+  end
+
   it { is_expected.to respond_to :release_bike }
 
   it { is_expected.to respond_to :dock}
 
-  it "checks bike is docked" do
-    bike = Bike.new
-    subject.dock(bike)
-    expect(subject.bike).to eq(bike)
-  end
-  
-  it "it should release a bike" do
-    bike = Bike.new
-    subject.dock(bike)
-    expect(subject.release_bike).to eq bike
-  end
-    
-  describe '#release_bike' do
-
-    it 'raises an error when empty' do
-      expect { subject.release_bike }.to raise_error 'Sorry mate, don\'t be a dock'
-    end
-    
+  it 'checks if the bike is working' do
+    expect(@bike).to be_working
   end
 
-  describe '#dock' do
+  describe 'calling empty docking station' do
 
-    it 'raises an error when full' do
-      20.times { subject.dock(Bike.new) }
-      expect { subject.dock(Bike.new) }.to raise_error 'Unlucky mate, I\m full'
+    it 'release bike' do
+      expect { subject.release_bike }.to raise_error('Sorry mate, don\'t be a dock')
     end
 
+    it 'dock bike' do
+      DockingStation::DEFAULT_CAPACITY.times do
+        subject.dock(@bike)
+      end
+      expect { subject.dock(@bike) }.to raise_error('Unlucky mate, I\'m full')
+    end
   end
 
 end
