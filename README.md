@@ -6,6 +6,14 @@ Transport for London, the body responsible for delivery of a new bike system, ha
 
 This project focuses on Pair Programming and TDD.
 
+## Technical skills
+
+- Domain modelling
+- TDD
+- SRP
+- Encapsulation
+- OOP
+
 ## Installation and usage
 
 This program requires latest [Ruby](https://www.ruby-lang.org/en/downloads/) version or more recent.
