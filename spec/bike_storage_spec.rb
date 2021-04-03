@@ -2,7 +2,6 @@ require 'bike_storage'
 
 shared_examples 'bike storage' do
   describe '#bikes' do
-    let(:bike) { instance_double(Bike, 'Bike') }
 
     context 'when initialized' do
       subject { described_class.new.bikes }
