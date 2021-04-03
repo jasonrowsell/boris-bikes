@@ -6,13 +6,12 @@ Transport for London, the body responsible for delivery of a new bike system, ha
 
 This project focuses on Pair Programming and TDD.
 
-\_Thank you pair programming partners!
-
-- [Max](https://github.com/MJCXII)
-- [Yohann](https://github.com/YohannTisserand)
-- [Tiffany](https://github.com/tiffanyvallo)
-- [Finn](https://github.com/fwill22)
-- [Adam](https://github.com/ajmccor)\_
+*Thank you pair programming partners!*
+- [*Max*](https://github.com/MJCXII)
+- [*Yohann*](https://github.com/YohannTisserand)
+- [*Tiffany*](https://github.com/tiffanyvallo)
+- [*Finn*](https://github.com/fwill22)
+- [*Adam*](https://github.com/ajmccor)
 
 ## Technical skills
 
