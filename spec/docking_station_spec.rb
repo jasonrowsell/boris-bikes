@@ -1,48 +1,73 @@
-require "docking_station"
+require 'docking_station'
+require 'exceptions'
 
 describe DockingStation do
+  let(:bike) { instance_double(Bike, :bike, working?: true) }
 
-  before do
-    @bike = Bike.new
-  end
+  describe '#release_bike' do
+    context 'when not empty' do
+      before(:example) { subject.dock(bike) }
+      let(:released_bike) { subject.release_bike }
 
-  it { is_expected.to respond_to :release_bike }
+      it { is_expected.to respond_to :release_bike }
 
-  it { is_expected.to respond_to :dock}
-
-  it 'checks if the bike is working' do
-    expect(@bike).to be_working
-  end
-
-  describe 'calling on empty docking station' do
-
-    it 'releases a bike' do
-      expect { subject.release_bike }.to raise_error('Sorry mate, don\'t be a dock')
-    end
-
-    it 'docks a bike' do
-      DockingStation::DEFAULT_CAPACITY.times do
-        subject.dock(@bike)
+      it 'returns a bike' do
+        expect(released_bike).to be bike
       end
-      expect { subject.dock(@bike) }.to raise_error('Unlucky mate, I\'m full')
+
+      it 'returns a working bike' do
+        expect(released_bike).to be_working
+      end
+    end
+
+    context 'when empty' do
+      it 'raises error release bike error' do
+        expect { subject.release_bike }.to raise_error(ReleaseBikeError, 'Sorry mate, I\'m all out of bikes!')
+      end
     end
   end
 
-  it { is_expected.to respond_to :capacity }
+  describe '#dock' do
+    context 'when not full' do
+      it { is_expected.to respond_to(:dock).with(1) }
 
-  it 'has a default capacity' do
-    expect(subject.capacity).to eq(DockingStation::DEFAULT_CAPACITY)
-  end
-
-  describe 'initialization' do
-    subject { DockingStation.new }
-    let(:bike) { Bike.new }
-    it 'defaults capacity' do
-      described_class::DEFAULT_CAPACITY.times do
+      it 'adds bike to bikes' do
         subject.dock(bike)
+        expect(subject.bikes).to include(bike)
       end
-      expect{ subject.dock(bike) }.to raise_error 'Unlucky mate, I\'m full'
+    end
+
+    context 'when full' do
+      it 'raises error' do
+        subject.capacity.times { subject.dock(bike) }
+        expect { subject.dock(bike) }.to raise_error(DockingError, 'Unlucky fella, I\'m biked to the max!')
+      end
     end
   end
-  
+
+  describe '#full?' do
+    context 'when empty' do
+      it 'returns false' do
+        expect(subject.send(:full?)).to be false
+      end
+    end
+
+    context 'when full' do
+      it 'returns true' do
+        subject.capacity.times { subject.dock(bike) }
+        expect(subject.send(:full?)).to be true
+      end
+    end
+  end
+
+  describe '#capacity' do
+    let(:station) { described_class.new(40) }
+    it 'returns the default capacity' do
+      expect(subject.capacity).to eq described_class::DEFAULT_CAPACITY
+    end
+
+    it 'can be set on initialization' do
+      expect(station.capacity).to eq 40
+    end
+  end
 end
