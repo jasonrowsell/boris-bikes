@@ -2,16 +2,17 @@
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/bfc95e944d4598212797/maintainability)](https://codeclimate.com/github/jasonrowsell/boris-bikes/maintainability) [![Build Status](https://travis-ci.com/jasonrowsell/boris-bikes.svg?branch=main)](https://travis-ci.com/jasonrowsell/boris-bikes) [![Coverage Status](https://coveralls.io/repos/github/jasonrowsell/boris-bikes/badge.svg?branch=main)](https://coveralls.io/github/jasonrowsell/boris-bikes?branch=main)
 
-Transport for London, the body responsible for delivery of a new bike system, has a plan: a network of docking stations and bikes that anyone can use. They want to build a program that will emulate all the docking stations, bikes, and infrastructure (repair staff, and so on) required to make their dream a reality.
+Transport for London, the body responsible for delivery of a new bike system, has a plan: a network of docking stations and bikes that anyone can use. They want to build a program that will emulate all the docking stations, bikes, and infrastructure (repair staff, and so on) required to make their dream a reality. The features built in this project are based on [user stories.](user_stories.md)
 
 This project focuses on Pair Programming and TDD.
 
 ## Technical skills
 
+- Encapsulation
 - Domain modelling
+- Mocking with doubles and stubs
 - TDD
 - SRP
-- Encapsulation
 - OOP
 
 ## Installation and usage
