@@ -2,7 +2,7 @@ require 'bike_storage'
 
 shared_examples 'bike storage' do
   describe '#bikes' do
-
+    let(:bike) { instance_double(Bike, 'Bike')}
     context 'when initialized' do
       subject { described_class.new.bikes }
       it { is_expected.to be_empty }
@@ -15,4 +15,8 @@ shared_examples 'bike storage' do
       end
     end
   end
+end
+
+describe DockingStation do
+  include_examples 'bike storage'
 end
