@@ -4,6 +4,19 @@ require 'exceptions'
 describe DockingStation do
   let(:bike) { instance_double(Bike, :bike, working?: true) }
 
+  describe '#bikes' do
+    it 'initializes with an empty bike storage' do
+        expect(described_class.new.bikes).to be_empty
+    end
+
+    context 'when docking bikes' do
+      it 'docks new bikes' do
+        subject.bikes << bike
+        expect(subject.bikes).to include(bike)
+      end
+    end
+  end
+
   describe '#release_bike' do
     context 'when not empty' do
       before(:example) { subject.dock(bike) }
