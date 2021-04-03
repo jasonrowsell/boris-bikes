@@ -16,11 +16,11 @@ describe DockingStation do
 
   describe 'calling on empty docking station' do
 
-    it 'release bike' do
+    it 'releases a bike' do
       expect { subject.release_bike }.to raise_error('Sorry mate, don\'t be a dock')
     end
 
-    it 'dock bike' do
+    it 'docks a bike' do
       DockingStation::DEFAULT_CAPACITY.times do
         subject.dock(@bike)
       end
