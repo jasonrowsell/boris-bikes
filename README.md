@@ -40,7 +40,7 @@ The following commands clone and run the Boris Bikes program:
 git clone git@github.com:jasonrowsell/boris-bikes.git
 ```
 
-Run dice.rb script in a REPL environment from root directory
+Run boris_bikes.rb script in a REPL environment from root directory
 
 ```shell
 irb -r ./lib/boris_bikes.rb
